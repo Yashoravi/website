@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unlimited Web Hosting – Purple Theme</title>
+  <meta name="description" content="Fast, secure & reliable unlimited web hosting. Managed WordPress, Reseller, and VPS plans. Free SSL, 24/7 support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ddcbe4d0;
+      --bg-soft:#ba309c;
+      --card:#1c1538;
+      --card-2:#231a46;
+      --text:#0f0f10;
+      --muted:#c9c3ea;
+      --brand:#e13aed;      /* purple */
+      --brand-2:#8bfae7;    /* lighter */
+      --brand-3:#e40ea1;    /* darker */
+      --accent:#d33d13;     /* cyan accent for highlights */
+      --success:#34d33e;    /* green for eco badge */
+      --warn:#24fb27;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(124,58,237,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+      color:var(--text);
+      background:radial-gradient(1200px 800px at 10% -10%,rgba(124,58,237,.25),transparent 60%),
+                 radial-gradient(800px 600px at 100% 0,rgba(167,139,250,.15),transparent 60%),
+                 var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin-inline:auto;padding:0 20px}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(180deg,rgba(14, 10, 24, 0.85),rgba(15,10,26,.55));
+      border-bottom:1px solid rgba(19, 12, 23, 0.051);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.4px}
+    .logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;box-shadow:var(--shadow)}
+    .logo-mark svg{width:18px;height:18px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:10px;color:var(--muted)}
+    .nav-links a:hover{background:rgba(124,58,237,.12);color:var(--text)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid rgba(167,139,250,.3);background:linear-gradient(180deg,rgba(124,58,237,.25),rgba(124,58,237,.12));box-shadow:var(--shadow);color:white;font-weight:600}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-secondary{background:transparent}
+    .mobile-toggle{display:none;background:transparent;border:0;color:var(--text)}
+
+    @media (max-width:860px){
+      .nav-links{display:none}
+      .mobile-toggle{display:block}
+    }
+
+    /* Hero */
+    .hero{padding:72px 0 36px}
+    .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px}
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid rgba(167,139,250,.3);border-radius:999px;color:var(--muted);background:rgba(124,58,237,.08)}
+    .hero h1{font-size:clamp(28px,5vw,52px);line-height:1.1;margin:14px 0 10px}
+    .hero p{color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .hero-card{background:rgb(220, 89, 196);border:1px solid rgba(167,139,250,.25);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+    .hero-illus{background:radial-gradient(600px 400px at 60% 40%,rgba(68, 194, 147, 0.363),transparent 60%),linear-gradient(160deg,rgba(29, 103, 50, 0.9),rgba(40, 112, 82, 0.558));border:1px solid rgba(167,139,250,.25);border-radius:24px;min-height:320px;position:relative;overflow:hidden}
+    .spark{position:absolute;inset:auto;filter:blur(14px);opacity:.9}
+    .spark.one{width:180px;height:180px;background:radial-gradient(circle at 30% 30%,var(--brand-2),transparent);top:20px;left:20px}
+    .spark.two{width:260px;height:260px;background:radial-gradient(circle at 70% 70%,var(--brand),transparent);bottom:-20px;right:-20px}
+    .illus-card{position:absolute;right:18px;bottom:18px;padding:14px 16px;border-radius:14px;background:rgba(15,10,26,.7);border:1px solid rgba(167,139,250,.25)}
+
+    @media (max-width:980px){
+      .hero-wrap{grid-template-columns:1fr}
+    }
+
+    /* Section base */
+    section{padding:68px 0}
+    .section-title{font-size:clamp(22px,3.6vw,36px);margin:0 0 12px}
+    .section-sub{color:var(--muted);max-width:65ch}
+
+    /* Pricing */
+    .plans{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .plan{background:linear-gradient(160deg,rgba(28,21,56,.9),rgba(28,21,56,.6));border:1px solid rgba(167,139,250,.22);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px}
+    .plan h3{margin:0}
+    .price{font-size:32px;font-weight:800}
+    .per{font-size:14px;color:var(--muted)}
+    .features{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+    .features li{display:flex;gap:10px;align-items:flex-start;color:var(--muted)}
+    .features svg{min-width:18px;margin-top:2px}
+    .plan .btn{margin-top:auto}
+    .popular{outline:2px solid var(--brand);box-shadow:0 0 0 6px rgba(124,58,237,.15)}
+    .ribbon{font-size:12px;background:linear-gradient(90deg,var(--brand),var(--brand-2));padding:6px 10px;border-radius:999px;display:inline-block}
+
+    @media (max-width:1024px){.plans{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.plans{grid-template-columns:1fr}}
+
+    /* Domain Search */
+    .domain{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-top:18px}
+    .input, .select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(167,139,250,.3);background:rgba(28,21,56,.75);color:var(--text)}
+    .select{appearance:none}
+
+    /* Why choose */
+    .grid-3{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(160deg,rgba(35,26,70,.95),rgba(35,26,70,.6));border:1px solid rgba(167,139,250,.24);border-radius:18px;padding:20px}
+    .card h4{margin:6px 0 8px}
+
+    @media (max-width:980px){.grid-3{grid-template-columns:1fr}}
+
+    /* Stats */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+    .stat{background:linear-gradient(145deg,rgba(124,58,237,.16),rgba(35,26,70,.7));border:1px solid rgba(167,139,250,.24);border-radius:18px;padding:18px;text-align:center}
+    .stat b{font-size:28px}
+    @media (max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:520px){.stats{grid-template-columns:1fr}}
+
+    /* Split sections */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:18px}
+    .split .panel{border-radius:20px;border:1px solid rgba(167,139,250,.25);padding:20px;background:linear-gradient(160deg,rgba(28,21,56,.9),rgba(28,21,56,.5))}
+    @media (max-width:980px){.split{grid-template-columns:1fr}}
+
+    /* FAQ */
+    .faq{margin-top:20px}
+    details{background:rgba(28,21,56,.7);border:1px solid rgba(167,139,250,.25);border-radius:16px;padding:14px 16px;margin:10px 0}
+    summary{cursor:pointer;font-weight:600}
+    details[open]{background:rgba(124,58,237,.12)}
+
+    /* CTA / Business */
+    .cta-wide{margin-top:24px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+    .cta-wide .panel{border-radius:20px;border:1px solid rgba(167,139,250,.25);padding:24px;background:linear-gradient(160deg,rgba(121, 117, 236, 0.923),rgba(183, 189, 244, 0.348))}
+    @media (max-width:980px){.cta-wide{grid-template-columns:1fr}}
+
+    /* Footer */
+    footer{padding:40px 0;border-top:1px solid rgba(218, 147, 249, 0.752);background:linear-gradient(180deg,rgb(25, 17, 7),rgba(155, 94, 191, 0.655))}
+    .foot{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:16px}
+    .foot h5{margin:0 0 10px}
+    .foot a{display:block;color:var(--muted);padding:6px 0}
+    .foot a:hover{color:var(--text)}
+    .copyright{margin-top:18px;color:var(--muted);font-size:14px}
+    @media (max-width:980px){.foot{grid-template-columns:1fr 1fr}.copyright{text-align:center}}
+    @media (max-width:620px){.foot{grid-template-columns:1fr}}
+
+    /* Utility */
+    .tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid rgba(167,139,250,.35)}
+    .eco{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.1);color:#d1fae5}
+    .note{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" fill="url(#g)"/>
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#a78bfa"/><stop offset="1" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span>Unlimited Hosting</span>
+      </div>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#pricing">Pricing</a>
+        <a href="#domain">Domains</a>
+        <a href="#why">Why Us</a>
+        <a href="#cpanel">cPanel</a>
+        <a href="#support">Support</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn-secondary btn" href="#pricing">View Plans</a>
+        <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('show');this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true')">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <span class="badge">⚡ Fast • 🔒 Secure • ♾️ Unlimited</span>
+        <h1>Unlimited Web Hosting — Fast, Secure & Reliable</h1>
+        <p>All-in-one hosting with free SSL, daily backups, 1‑click WordPress installs, and 24/7 support. Scale from shared to VPS seamlessly without downtime.</p>
+        <div class="cta">
+          <a class="btn" href="#pricing">Get Started</a>
+          <a class="btn btn-secondary" href="#why">Why Choose Us</a>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="tag eco">🌱 Green Energy Powered</div>
+            <p class="note">Our data centers match 100% energy usage with renewable certificates.</p>
+          </div>
+          <div class="hero-card">
+            <div class="tag">🛡️ Free SSL & DDoS Protection</div>
+            <p class="note">Automatic HTTPS for every site with managed security updates.</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-illus">
+        <div class="spark one"></div>
+        <div class="spark two"></div>
+        <div class="illus-card">99.9% Uptime SLA • Global CDN • IPv6 Ready</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Choose from our web hosting solutions</h2>
+      <p class="section-sub">Simple pricing with powerful features. Upgrade or downgrade anytime. Free site migration on all plans.</p>
+
+      <div class="plans">
+        <!-- Web Hosting -->
+        <article class="plan">
+          <span class="ribbon">Starter</span>
+          <h3>Web Hosting</h3>
+          <div><span class="price">£2.49</span> <span class="per">/ mo</span></div>
+          <ul class="features">
+            <li>✅ Unlimited bandwidth & storage</li>
+            <li>✅ Free SSL & weekly backups</li>
+            <li>✅ 10 email accounts</li>
+            <li>✅ 1 website • 1‑click installs</li>
+          </ul>
+          <a class="btn" href="#">Select Plan</a>
+        </article>
+        <!-- Managed WordPress -->
+        <article class="plan popular">
+          <span class="ribbon">Most Popular</span>
+          <h3>Managed WordPress</h3>
+          <div><span class="price">£4.99</span> <span class="per">/ mo</span></div>
+          <ul class="features">
+            <li>✅ Auto updates & caching</li>
+            <li>✅ Daily backups + restore</li>
+            <li>✅ Staging environment</li>
+            <li>✅ Malware scan & fix</li>
+          </ul>
+          <a class="btn" href="#">Select Plan</a>
+        </article>
+        <!-- Reseller -->
+        <article class="plan">
+          <span class="ribbon">Pro</span>
+          <h3>Reseller Hosting</h3>
+          <div><span class="price">£9.99</span> <span class="per">/ mo</span></div>
+          <ul class="features">
+            <li>✅ White‑label cPanel accounts</li>
+            <li>✅ Unlimited domains</li>
+            <li>✅ WHM access</li>
+            <li>✅ Free billing panel</li>
+          </ul>
+          <a class="btn" href="#">Select Plan</a>
+        </article>
+        <!-- VPS -->
+        <article class="plan">
+          <span class="ribbon">Power</span>
+          <h3>VPS Hosting</h3>
+          <div><span class="price">£9.99</span> <span class="per">/ mo</span></div>
+          <ul class="features">
+            <li>✅ Dedicated CPU & RAM</li>
+            <li>✅ Full root access</li>
+            <li>✅ NVMe SSD storage</li>
+            <li>✅ Free snapshots</li>
+          </ul>
+          <a class="btn" href="#">Select Plan</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domain Search -->
+  <section id="domain">
+    <div class="container">
+      <h2 class="section-title">Grab your perfect domain</h2>
+      <p class="section-sub">Search and register domains with instant DNS, free privacy and one‑click connect to hosting.</p>
+      <form class="domain" onsubmit="event.preventDefault();alert('Demo: domain search initiated!')">
+        <input class="input" type="text" placeholder="Search domain (e.g. mybrand)" aria-label="Domain name" required />
+        <select class="select" aria-label="TLD">
+          <option>.com</option>
+          <option>.net</option>
+          <option>.org</option>
+          <option>.io</option>
+          <option>.tech</option>
+        </select>
+      </form>
+      <p class="note" style="margin-top:10px">Free WHOIS privacy on supported TLDs. Transfers welcome.</p>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why">
+    <div class="container">
+      <h2 class="section-title">Why customers choose us</h2>
+      <p class="section-sub">We obsess over performance, security and support so you can focus on your business.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="tag">🚀 Performance</div>
+          <h4>Lightning‑fast stack</h4>
+          <p class="note">NVMe SSDs, HTTP/3, Brotli and global CDN to make your site fly.</p>
+        </div>
+        <div class="card">
+          <div class="tag">🛡️ Security</div>
+          <h4>Always‑on protection</h4>
+          <p class="note">WAF, DDoS mitigation, malware scanning and automatic patching.</p>
+        </div>
+        <div class="card">
+          <div class="tag">🤝 Support</div>
+          <h4>Human, 24/7 help</h4>
+          <p class="note">Real engineers via chat & email. Average first reply under 5 minutes.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>50k+</b><div class="note">Websites hosted</div></div>
+        <div class="stat"><b>99.9%</b><div class="note">Uptime SLA</div></div>
+        <div class="stat"><b>200+ TB</b><div class="note">Monthly bandwidth</div></div>
+        <div class="stat"><b>4.9/5</b><div class="note">Average rating</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- cPanel / Support Split -->
+  <section id="cpanel">
+    <div class="container split">
+      <div class="panel">
+        <div class="tag">🧰 cPanel Included</div>
+        <h3 style="margin:10px 0">Hosting with cPanel</h3>
+        <p class="note">Manage files, databases, email and DNS with the industry‑standard control panel. Softaculous for 400+ 1‑click apps.</p>
+        <ul class="features" style="margin-top:10px">
+          <li>✅ File manager & FTP/SFTP</li>
+          <li>✅ MySQL/PostgreSQL & phpMyAdmin</li>
+          <li>✅ Email accounts & filters</li>
+          <li>✅ Backup & restore tools</li>
+        </ul>
+      </div>
+      <div class="panel" id="support">
+        <div class="tag">💬 24/7 Support</div>
+        <h3 style="margin:10px 0">Here when you need us</h3>
+        <p class="note">From migration to optimization, our specialists are one message away. Comprehensive knowledge base and onboarding guides included.</p>
+        <ul class="features" style="margin-top:10px">
+          <li>✅ Free site migration</li>
+          <li>✅ Email & chat support</li>
+          <li>✅ SLA with credits</li>
+          <li>✅ Status page & incident updates</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Migration & Green -->
+  <section>
+    <div class="container split">
+      <div class="panel">
+        <div class="tag">🧳 Migration</div>
+        <h3 style="margin:10px 0">Zero‑downtime migration</h3>
+        <p class="note">We clone your site and switch DNS only after checks pass. Rollback available at any time.</p>
+        <a class="btn" href="#">Start Free Migration</a>
+      </div>
+      <div class="panel">
+        <div class="tag eco">🌱 Green Hosting</div>
+        <h3 style="margin:10px 0">Powered by renewables</h3>
+        <p class="note">Energy‑efficient hardware and carbon‑offset partnerships help reduce footprint without sacrificing speed.</p>
+        <ul class="features" style="margin-top:10px">
+          <li>✅ Energy matched with RECs</li>
+          <li>✅ Efficient NVMe and ARM nodes</li>
+          <li>✅ Data center PUE < 1.3</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <p class="section-sub">Can’t find what you’re looking for? Reach out to our 24/7 team.</p>
+      <div class="faq">
+        <details>
+          <summary>What does “unlimited” actually include?</summary>
+          <div class="note">No hard caps on storage or bandwidth for normal website usage. Fair‑use applies against abuse like file sharing archives.</div>
+        </details>
+        <details>
+          <summary>Can you migrate my existing website?</summary>
+          <div class="note">Yes — free migrations for WordPress, cPanel and most custom stacks. We handle DNS cutover when you approve.</div>
+        </details>
+        <details>
+          <summary>Do all plans include SSL and backups?</summary>
+          <div class="note">Yes, automatic Let’s Encrypt SSL certificates and scheduled backups are included on every plan.</div>
+        </details>
+        <details>
+          <summary>What payment methods are supported?</summary>
+          <div class="note">Major cards, PayPal and bank transfer for annual plans. Invoices provided for business accounts.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business CTA -->
+  <section>
+    <div class="container cta-wide">
+      <div class="panel">
+        <h3 style="margin:0 0 6px">Ready to grow your business?</h3>
+        <p class="note">Deploy your site in minutes. Scale globally with CDN and upgrade as you grow.</p>
+        <div class="cta" style="margin-top:10px">
+          <a class="btn" href="#pricing">Start Hosting</a>
+          <a class="btn btn-secondary" href="#domain">Search Domain</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3 style="margin:0 0 6px">Developers welcome</h3>
+        <p class="note">SSH, Git, Node.js, Python, PHP 8.x, Redis and more. Bring your stack.</p>
+        <ul class="features" style="margin-top:10px">
+          <li>✅ Staging & cloning</li>
+          <li>✅ Free subdomains</li>
+          <li>✅ API & CLI tools</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <div>
+        <div class="logo" style="margin-bottom:10px">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <strong>Unlimited Hosting</strong>
+        </div>
+        <p class="note">Fast, secure & reliable hosting on a modern purple‑themed landing page. This demo is fully responsive.</p>
+      </div>
+      <div>
+        <h5>Products</h5>
+        <a href="#pricing">Web Hosting</a>
+        <a href="#pricing">Managed WordPress</a>
+        <a href="#pricing">Reseller Hosting</a>
+        <a href="#pricing">VPS Hosting</a>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <a href="#faq">Status & SLA</a>
+        <a href="#faq">Knowledge Base</a>
+        <a href="#support">Contact Support</a>
+        <a href="#domain">Domain Search</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Legal</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+    <div class="container copyright">© 2025 Unlimited Hosting. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Tiny enhancement: close other FAQs when one opens (optional)
+    document.addEventListener('click', e => {
+      if(e.target.tagName.toLowerCase() === 'summary'){
+        const current = e.target.parentElement;
+        document.querySelectorAll('#faq details[open]').forEach(d => { if(d!==current) d.removeAttribute('open'); });
+      }
+    });
+  </script>
+</body>
+</html>
+
